@@ -1,0 +1,63 @@
+function setup() {
+  createCanvas(400, 400);
+  background(20, 170, 170);
+  angleMode(DEGREES);
+  
+  //Hair
+  noStroke();
+  fill(99, 67, 40);
+  rect(135, 90, 130, 180, 80);
+  
+  //Shirt
+  stroke(12);
+  fill(212, 113, 28);
+  rect(125, 225, 150, 300, 60);
+  
+  //neck
+  fill(227, 178, 136);
+  rect(180, 184, 40, 40, 7);
+  
+  //head
+  fill(227, 178, 136);
+  ellipse(200, 150, 100, 110);
+  
+  //front-hair
+  noStroke();
+  fill(99, 67, 40);
+  arc(230, 100,70,50, 40, 193);//right bang
+  arc(172, 100,60,50, -20, 140);
+  
+  stroke(12)
+  //mouth
+  fill(156, 51, 30);
+  arc(200, 175, 30, 20, 0, 180);
+  
+  //buttons
+  ellipse(200, 260, 5, 5);
+  ellipse(200, 290, 5, 5);
+  ellipse(200, 320, 5, 5);
+  ellipse(200, 350, 5, 5);
+  
+  //left eye
+  fill(400);
+  ellipse(183, 143, 17, 15);
+  fill(0);
+  ellipse(183, 143, 5, 9);
+  
+  //right eye
+  fill(400);
+  ellipse(215, 143, 17, 15);
+  
+  fill(0);
+  ellipse(215, 143, 5, 9);
+  
+  //nose
+  fill(184, 122, 70);
+  noFill();
+  arc(200,155,10,5,270,90);
+  
+  //collar
+  fill(227, 178, 136);
+  arc(200, 216, 40, 50, 0, 180)
+  
+}
