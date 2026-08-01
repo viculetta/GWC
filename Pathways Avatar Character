@@ -1,0 +1,53 @@
+/* VARIABLES */
+
+/* SETUP RUNS ONCE */
+function setup() {
+  //sets the screen size
+  createCanvas(400,400); 
+
+  //sets the background color
+  background(255,249,226); 
+}
+
+/* DRAW LOOP REPEATS */
+function draw() {
+  fill(102, 67, 39);
+  rect(90, 70, 220, 330, 90); //hair
+  fill(255, 231, 184);
+  noStroke();
+  rect(180, 310, 40, 50); //neck
+  stroke(1);
+  ellipse(200, 200, 190, 230); //face
+  fill(87, 57, 34);
+  noStroke();
+  rect(115, 84, 170, 50, 90); //top-hair
+  fill(0);
+  noStroke();
+  text('Click on me to see me blink!', 240, 30); //text
+  fill(0, 230, 153);
+  stroke(1);
+  rect(50, 340, 300, 354, 130); //body
+  fill(400);
+  noStroke();
+  arc(200, 250, 60, 50, 0, 180); //mouth
+  fill(400);
+  ellipse(160, 190, 40, 30); //left-eye
+  ellipse(237, 190, 40, 30); //right-eye
+  fill(143, 201, 200);
+  ellipse(160, 190, 23, 23); //left-iris
+  ellipse(237, 190, 23, 23); //right-iris
+  fill(0);
+  ellipse(160, 190, 16, 16); //left-pupil
+  ellipse(237, 190, 16, 16); //right-pupil
+  fill(232, 205, 151);
+  ellipse(200, 225, 13, 13); //nose shape
+  triangle(200, 214, 207, 225, 193, 225); //nose
+  
+}
+
+
+
+
+
+
+
