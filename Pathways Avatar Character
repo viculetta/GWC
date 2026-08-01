@@ -31,14 +31,35 @@ function draw() {
   noStroke();
   arc(200, 250, 60, 50, 0, 180); //mouth
   fill(400);
-  ellipse(160, 190, 40, 30); //left-eye
-  ellipse(237, 190, 40, 30); //right-eye
-  fill(143, 201, 200);
-  ellipse(160, 190, 23, 23); //left-iris
-  ellipse(237, 190, 23, 23); //right-iris
-  fill(0);
-  ellipse(160, 190, 16, 16); //left-pupil
-  ellipse(237, 190, 16, 16); //right-pupil
+  eyeHeight = 30;
+  eyeWidth = 50;
+  //ellipse(160, 190, eyeWidth, eyeHeight); //left-eye
+  //ellipse(237, 190, eyeWidth, eyeHeight); //right-eye
+  if (mouseIsPressed) {
+    //eyes closed
+    fill(400);
+    ellipse(160, 190, eyeWidth, eyeHeight/5);
+    ellipse(237, 190, eyeWidth, eyeHeight/5);
+    fill(0);
+    ellipse(160, 190, eyeWidth/2, eyeHeight/8);
+    ellipse(237, 190, eyeWidth/2, eyeHeight/8);
+  } else {
+    //eyes open
+    ellipse(160, 190, eyeWidth, eyeHeight); //left-eye
+    ellipse(237, 190, eyeWidth, eyeHeight); //right-eye
+    fill(143, 201, 200);
+    ellipse(160, 190, 23, 23); //left-iris
+    ellipse(237, 190, 23, 23); //right-iris
+    fill(0);
+    ellipse(160, 190, 16, 16); //left-pupil
+    ellipse(237, 190, 16, 16); //right-pupil
+  }
+  //fill(143, 201, 200);
+  //ellipse(160, 190, 23, 23); //left-iris
+  //ellipse(237, 190, 23, 23); //right-iris
+  //fill(0);
+  //ellipse(160, 190, 16, 16); //left-pupil
+  //ellipse(237, 190, 16, 16); //right-pupil
   fill(232, 205, 151);
   ellipse(200, 225, 13, 13); //nose shape
   triangle(200, 214, 207, 225, 193, 225); //nose
