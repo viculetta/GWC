@@ -24,6 +24,7 @@ function draw() {
   fill(0);
   noStroke();
   text('Click to see me close my eyes. Click again to see me open them.', 280, 20, 100); //text
+  text('Look at that smile!', 30, 40);
   fill(0, 230, 153);
   stroke(1);
   rect(50, 340, 300, 354, 130); //body
