@@ -3,10 +3,10 @@
 
 /* VARIABLES */
 let enterButton;
-let a1Button;
-let a2Button;
-let b1Button;
-let b2Button;
+let a1;
+let a2;
+let b1;
+let b2;
 let screen = 0;
 
 /* SETUP RUNS ONCE */
@@ -28,6 +28,8 @@ function setup() {
     enterButton = new Sprite(width/2, height/2 + 100);
     a1 = new Sprite(-50, -50);
     a2 = new Sprite(-50, -50);
+    b1 = new Sprite(-100, -100);
+    b2 = new Sprite(-100, -100);
   
 }
 
@@ -48,13 +50,44 @@ function draw() {
   a1.color = "rgb(205, 122, 235)";
 
   // Add A2 button
+
   a2.w = 50;
   a2.h = 50;
   a2.collider = "k";
   a2.color = "rgb(205, 122, 235)";
 
   // Check enter button
+  if (enterButton.mouse.presses()) {
+    background("paleturquoise");
+    text("Welcome to Screen 1", width/2, height/2 - 100);
+    enterButton.pos = {x: -50, y: -50};
 
+    a1.pos = {x: width/2 - 50, y: height/2 + 100};
+    a2.pos = {x: width/2 + 50, y: height/2 + 100};
+    screen = 1;
+  }
+
+  if (screen == 1) {
+    if (a1.mouse.presses()) {
+      print("Going to display 2");
+      print(screen);
+      background("plum");
+      text("Welcome to Screen 2", width/2, height/2 - 100);
+      a1.pos = {x: -150, y: -150};
+      a2.pos = {x: -150, y: -150};
+      b1.pos = {x: width/2 - 50, y: height/2 + 100};
+      b2.pos = {x: width/2 + 50, y: height/2 + 100};
+      screen = 2;
+    } else if (a2.mouse.presses()){
+      print("Going to display 5");
+      print(screen);
+      screen = 5;
+    }
+    
+    
+  }
+
+  
 }
 
 /* FUNCTIONS TO DISPLAY SCREENS */
