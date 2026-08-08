@@ -25,12 +25,14 @@ function setup() {
   );
 
   // Create buttons for all screens
-    enterButton = new Sprite(width/2, height/2 + 100);
-    a1 = new Sprite(-50, -50);
-    a2 = new Sprite(-50, -50);
-    b1 = new Sprite(-100, -100);
-    b2 = new Sprite(-100, -100);
-  
+  enterButton = new Sprite(width/2, height/2 + 100);
+  a1 = new Sprite(-50, -50);
+  a2 = new Sprite(-50, -50);
+  b1 = new Sprite(-100, -100);
+  b2 = new Sprite(-100, -100);
+  b1.collider = "k";
+  b2.collider = "k";
+    
 }
 
 /* DRAW LOOP REPEATS */
@@ -80,7 +82,10 @@ function draw() {
       screen = 2;
     } else if (a2.mouse.presses()){
       print("Going to display 5");
-      print(screen);
+      background("lightblue");
+      text("You left on screen 5", width/2, height/2 - 100);
+      a1.pos = {x: -150, y: -150};
+      a2.pos = {x: -150, y: -150};
       screen = 5;
     }
     
@@ -91,3 +96,12 @@ function draw() {
 }
 
 /* FUNCTIONS TO DISPLAY SCREENS */
+
+function showScreen2() {
+  
+}
+
+function showScreen5() {
+  
+}
+
