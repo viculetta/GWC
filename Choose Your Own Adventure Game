@@ -60,48 +60,49 @@ function draw() {
 
   // Check enter button
   if (enterButton.mouse.presses()) {
-    background("paleturquoise");
-    text("Welcome to Screen 1", width/2, height/2 - 100);
-    enterButton.pos = {x: -50, y: -50};
-
-    a1.pos = {x: width/2 - 50, y: height/2 + 100};
-    a2.pos = {x: width/2 + 50, y: height/2 + 100};
-    screen = 1;
+    showScreen1();
   }
 
   if (screen == 1) {
     if (a1.mouse.presses()) {
-      print("Going to display 2");
-      print(screen);
-      background("plum");
-      text("Welcome to Screen 2", width/2, height/2 - 100);
-      a1.pos = {x: -150, y: -150};
-      a2.pos = {x: -150, y: -150};
-      b1.pos = {x: width/2 - 50, y: height/2 + 100};
-      b2.pos = {x: width/2 + 50, y: height/2 + 100};
-      screen = 2;
+      showScreen2();
     } else if (a2.mouse.presses()){
-      print("Going to display 5");
-      background("lightblue");
-      text("You left on screen 5", width/2, height/2 - 100);
-      a1.pos = {x: -150, y: -150};
-      a2.pos = {x: -150, y: -150};
-      screen = 5;
+      showScreen5();
     }
-    
-    
   }
-
   
 }
 
 /* FUNCTIONS TO DISPLAY SCREENS */
 
+function showScreen1() {
+  background("paleturquoise");
+  text("Welcome to Screen 1", width/2, height/2 - 100);
+  enterButton.pos = {x: -50, y: -50};
+
+  a1.pos = {x: width/2 - 50, y: height/2 + 100};
+  a2.pos = {x: width/2 + 50, y: height/2 + 100};
+  screen = 1;
+}
+
 function showScreen2() {
-  
+  print("Going to display 2");
+  print(screen);
+  background("plum");
+  text("Welcome to Screen 2", width/2, height/2 - 100);
+  a1.pos = {x: -150, y: -150};
+  a2.pos = {x: -150, y: -150};
+  b1.pos = {x: width/2 - 50, y: height/2 + 100};
+  b2.pos = {x: width/2 + 50, y: height/2 + 100};
+  screen = 2;
 }
 
 function showScreen5() {
-  
+  print("Going to display 5");
+  background("lightblue");
+  text("You left on screen 5", width/2, height/2 - 100);
+  a1.pos = {x: -150, y: -150};
+  a2.pos = {x: -150, y: -150};
+  screen = 5;
 }
 
