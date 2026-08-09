@@ -117,7 +117,7 @@ function draw() {
 
 function showScreen1() {
   background("paleturquoise");
-  text("You walk through the mud and water, the trees around you dark shadows with their limbs reaching towards you. Your shoes are already thoroughly soaked and you can barely feel your toes. You're hungry, and the pouring rain is making you cold. Thunder and lightening lighten your path, and ahead you make out a dark open. A cave. Just what you need to wait out the thunderstorm. Do you enter? Or find a different spot for cover?", 55, height/2 - 160, 500);
+  text("You walk through the mud and water, the trees around you dark shadows with their limbs reaching towards you. Your shoes are already thoroughly soaked and you can barely feel your toes. You're hungry, and the pouring rain is making you cold. Thunder and lightening lighten your path, and ahead you make out a dark opening. A cave. Just what you need to wait out the thunderstorm. Do you enter? Or find a different spot for cover?", 55, height/2 - 160, 500);
   enterButton.pos = {x: -50, y: -50};
 
   a1.pos = {x: width/2 - 100, y: height/2 + 100};
