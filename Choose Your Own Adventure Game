@@ -8,6 +8,8 @@ let a2;
 let b1;
 let b2;
 let screen = 0;
+let c1;
+let c2;
 
 /* SETUP RUNS ONCE */
 function setup() {
@@ -30,7 +32,8 @@ function setup() {
   b2 = new Sprite(-100, -100);
   b1.collider = "k";
   b2.collider = "k";
-    
+  c1 = new Sprite(-200, -200);
+  c2 = new Sprite(-200, -200);
 }
 
 /* DRAW LOOP REPEATS */
@@ -63,6 +66,20 @@ function draw() {
   a2.color = "rgb(205, 122, 235)";
   a2.text = "Find a different spot";
 
+  // Add c1
+  c1.w = 120;
+  c1.h = 50;
+  c1.collider = "k";
+  c1.text = "Keep going";
+  c1.color = "rgb(227, 162, 50)";
+
+  // Add c2
+  c2.w = 100;
+  c2.h = 50;
+  c2.collider = "k";
+  c2.text = "Turn back";
+  c2.color = "rgb(227, 162, 50)";
+
   // Check enter button
   if (enterButton.mouse.presses()) {
     showScreen1();
@@ -84,6 +101,14 @@ function draw() {
       showScreen4();
       screen = 4;
     }
+  } else if (screen = 3) {
+    if (c1.mouse.presses()) {
+      showScreen6();
+      screen = 6;
+    } else if (c2.mouse.presses()) {
+      showScreen7();
+      screen = 7;
+    }
   }
   
 }
@@ -104,19 +129,27 @@ function showScreen2() {
   print("Going to display 2");
   print(screen);
   background("plum");
-  text("You enter the darkness of the cave, your feet crunching on the rocks underfoot. At least, you think those are rocks. The rain continues to patter outside, and you feel slightly more safe. You sit down on the ground and lean your head against the cavern wall. You sit still for a few minutes, until you notice warm air coming from the inside of the cave.", width/2, height/2 - 100);
+  text("You enter the darkness of the cave, your feet crunching on the rocks underfoot. At least, you think those are rocks. The rain continues to patter outside, and you feel slightly more safe. You sit down on the ground and lean your head against the cavern wall. You sit still for a few minutes, until you notice warm air coming from the inside of the cave.", 55, height/2 - 160, 500);
   a1.pos = {x: -150, y: -150};
   a2.pos = {x: -150, y: -150};
   b1.pos = {x: width/2 - 50, y: height/2 + 100};
   b2.pos = {x: width/2 + 50, y: height/2 + 100};
   screen = 2;
+  b1.color = ("rgb(82, 77, 168)");
+  b2.color = ("rgb(82, 77, 168)");
+  b1.text = "Explore";
+  b2.text = "Ignore";
+  b1.w = 80;
+  b2.w = 80;
 }
 
 function showScreen3() {
   background("pink");
-  text("Your game ended on Screen 3", width/2, height/2 - 100);
+  text("You make your way deeper into the cave using only your sense of touch for orientation. You wander some 50 feet, with the air getting warmer and drier. You start to see a faint light up ahead.", 55, height/2 - 160, 500);
   b1.pos = {x: -150, y: -150};
   b2.pos = {x: -150, y: -150};
+  c1.pos = {x: width/2 - 60, y: height/2 + 100};
+  c2.pos = {x: width/2 + 60, y: height/2 + 100};
 }
 
 function showScreen4() {
@@ -129,9 +162,27 @@ function showScreen4() {
 function showScreen5() {
   print("Going to display 5");
   background("lightblue");
-  text("You left on screen 5", width/2, height/2 - 100);
+  text("You turn around and retreat the way you came. The rain continues to pour down as you wander through the forest, tripping over dark roots and rocks. You eventually make your way to a road which you start to follow. After some time of hitch hiking, you make your way home. You're all wet, but at least you're safe.", 55, height/2 - 160, 500);
   a1.pos = {x: -150, y: -150};
   a2.pos = {x: -150, y: -150};
   screen = 5;
+}
+
+function showScreen6() {
+  print("Displaying screen 6");
+  background("rgb(90, 171, 27)");
+  text("", 55, height/2 - 160, 500);
+  b1.pos = {x: -150, y: -150};
+  b2.pos = {x: -150, y: -150};
+  screen = 6;
+}
+
+function showScreen7() {
+  print("Displaying screen 7");
+  background("rgb(90, 171, 27)");
+  text("Screen 7", 55, height/2 - 160, 500);
+  b1.pos = {x: -150, y: -150};
+  b2.pos = {x: -150, y: -150};
+  screen = 7;
 }
 
