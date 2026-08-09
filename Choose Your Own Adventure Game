@@ -18,11 +18,9 @@ function setup() {
 
   // Set up the home screen
   background("pink");
-  text(
-    "Welcome to The Haunted Cave.",
-    width / 2,
-    height / 2 - 100
-  );
+  text("Welcome to The Haunted Cave.", width / 2, height / 2 - 100);
+  fill('red');
+  text("Enter if you dare.", width/2, height/2);
 
   // Create buttons for all screens
   enterButton = new Sprite(width/2, height/2 + 100);
@@ -38,25 +36,32 @@ function setup() {
 /* DRAW LOOP REPEATS */
 function draw() {
   // Display enter button
-  enterButton.color = "rgb(205, 122, 235)";
+  enterButton.color = "rgb(196, 44, 24)";
   enterButton.text = "Enter";
   enterButton.w = 100;
   enterButton.h = 50;
   enterButton.collider = "k";
-  
+  // Shapes and Decorations
+  fill(202, 166, 255);
+  ellipse(0, 0, 100, 100);
+  fill(17, 17, 156);
+  rect(500, 320, 100, 80);
+  fill(0);
 
   // Add A1 button
-  a1.w = 50;
+  a1.w = 70;
   a1.h = 50;
   a1.collider = "k";
   a1.color = "rgb(205, 122, 235)";
+  a1.text = "Enter";
 
   // Add A2 button
 
-  a2.w = 50;
+  a2.w = 200;
   a2.h = 50;
   a2.collider = "k";
   a2.color = "rgb(205, 122, 235)";
+  a2.text = "Find a different spot";
 
   // Check enter button
   if (enterButton.mouse.presses()) {
@@ -66,8 +71,18 @@ function draw() {
   if (screen == 1) {
     if (a1.mouse.presses()) {
       showScreen2();
+      screen = 2;
     } else if (a2.mouse.presses()){
       showScreen5();
+      screen = 5;
+    }
+  } else if (screen = 2) {
+    if (b1.mouse.presses()) {
+      showScreen3();
+      screen = 3;
+    } else if (b2.mouse.presses()) {
+      showScreen4();
+      screen = 4;
     }
   }
   
@@ -77,11 +92,11 @@ function draw() {
 
 function showScreen1() {
   background("paleturquoise");
-  text("Welcome to Screen 1", width/2, height/2 - 100);
+  text("You walk through the mud and water, the trees around you dark shadows with their limbs reaching towards you. Your shoes are already thoroughly soaked and you can barely feel your toes. You're hungry, and the pouring rain is making you cold. Thunder and lightening lighten your path, and ahead you make out a dark open. A cave. Just what you need to wait out the thunderstorm. Do you enter? Or find a different spot for cover?", 55, height/2 - 160, 500);
   enterButton.pos = {x: -50, y: -50};
 
-  a1.pos = {x: width/2 - 50, y: height/2 + 100};
-  a2.pos = {x: width/2 + 50, y: height/2 + 100};
+  a1.pos = {x: width/2 - 100, y: height/2 + 100};
+  a2.pos = {x: width/2 + 70, y: height/2 + 100};
   screen = 1;
 }
 
@@ -89,12 +104,26 @@ function showScreen2() {
   print("Going to display 2");
   print(screen);
   background("plum");
-  text("Welcome to Screen 2", width/2, height/2 - 100);
+  text("You enter the darkness of the cave, your feet crunching on the rocks underfoot. At least, you think those are rocks. The rain continues to patter outside, and you feel slightly more safe. You sit down on the ground and lean your head against the cavern wall. You sit still for a few minutes, until you notice warm air coming from the inside of the cave.", width/2, height/2 - 100);
   a1.pos = {x: -150, y: -150};
   a2.pos = {x: -150, y: -150};
   b1.pos = {x: width/2 - 50, y: height/2 + 100};
   b2.pos = {x: width/2 + 50, y: height/2 + 100};
   screen = 2;
+}
+
+function showScreen3() {
+  background("pink");
+  text("Your game ended on Screen 3", width/2, height/2 - 100);
+  b1.pos = {x: -150, y: -150};
+  b2.pos = {x: -150, y: -150};
+}
+
+function showScreen4() {
+  background("lavender");
+  text("Your game ended on Screen 4", width/2, height/2 - 100);
+  b1.pos = {x: -150, y: -150};
+  b2.pos = {x: -150, y: -150};
 }
 
 function showScreen5() {
