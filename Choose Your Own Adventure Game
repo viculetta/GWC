@@ -93,7 +93,7 @@ function draw() {
       showScreen5();
       screen = 5;
     }
-  } else if (screen = 2) {
+  } else if (screen == 2) {
     if (b1.mouse.presses()) {
       showScreen3();
       screen = 3;
@@ -101,7 +101,7 @@ function draw() {
       showScreen4();
       screen = 4;
     }
-  } else if (screen = 3) {
+  } else if (screen == 3) {
     if (c1.mouse.presses()) {
       showScreen6();
       screen = 6;
@@ -154,7 +154,7 @@ function showScreen3() {
 
 function showScreen4() {
   background("lavender");
-  text("Your game ended on Screen 4", width/2, height/2 - 100);
+  text("You decide to ignore the strange air coming from the depths of the cave. Instead, you sit in the dark until the sound of the pattering rain fades away. You make your way out, and start walking, until you eventually make your way to a road which you start to follow. After some time of hitch hiking, you make your way home. You're all wet, but at least you're safe.", 55, height/2 - 160, 500);
   b1.pos = {x: -150, y: -150};
   b2.pos = {x: -150, y: -150};
 }
@@ -170,19 +170,19 @@ function showScreen5() {
 
 function showScreen6() {
   print("Displaying screen 6");
-  background("rgb(90, 171, 27)");
-  text("", 55, height/2 - 160, 500);
-  b1.pos = {x: -150, y: -150};
-  b2.pos = {x: -150, y: -150};
+  background("rgb(51, 138, 117)");
+  c1.pos = {x: -150, y: -150};
+  c2.pos = {x: -150, y: -150};
+  text("You keep heading toward the light until..... You suddenly exit in a different world!!! You are surrounded by a soft carpet of moss, with tall, looming, green trees. Fly Agarics grow tall around you with small doors and windows located in their stems. But the most fascinating object are the little gnomes. Tall, short, fat, skiny, hats, no hats... all different kinds. They hobble in little shoes, going around their business as you stare at the marvel around you.", 55, height/2 - 160, 500);
   screen = 6;
 }
 
 function showScreen7() {
   print("Displaying screen 7");
-  background("rgb(90, 171, 27)");
-  text("Screen 7", 55, height/2 - 160, 500);
-  b1.pos = {x: -150, y: -150};
-  b2.pos = {x: -150, y: -150};
+  background("rgb(97, 173, 144)");
+  text("You turn around and retreat the way you came. You trample through the cave in a hurry, until you exit into the open. The rain continues to pour down as you wander through the forest, tripping over dark roots and rocks. You eventually make your way to a road which you start to follow. After some time of hitch hiking, you make your way home. You're all wet, but at least you're safe.", 55, height/2 - 160, 500);
+  c1.pos = {x: -150, y: -150};
+  c2.pos = {x: -150, y: -150};
   screen = 7;
 }
 
