@@ -3,9 +3,15 @@
 /* VARIABLES */
 let catcher, fallingObject;
 let score = 0;
+let backgroundImg;
+let fallingObjectImg;
+let catcherImg;
 
 /* PRELOAD LOADS FILES */
 function preload(){
+  backgroundImg = loadImage("assets/grass_bckg.jpg");
+  fallingObjectImg = loadImage("assets/carrot.png");
+  catcherImg = loadImage("assets/bunny_top.png");
   
 }
 
@@ -16,18 +22,21 @@ function setup() {
   
   
   //Create catcher 
-  catcher = new Sprite(200,380,100,20, "k");
-  catcher.color = color(95,158,160);
+  catcher = new Sprite(200,380,130,230, "k");
+  catcher.img = catcherImg;
   
   //Create falling object
-  fallingObject = new Sprite(100,0,10);
-  fallingObject.color = color(0,128,128);
+  fallingObject = new Sprite(100,0,);
+  fallingObject.img = fallingObjectImg;
+  fallingObject.scale = 0.1;
   fallingObject.vel.y = 5;
+  fallingObject.rotationLock = true;
 }
 
 /* DRAW LOOP REPEATS */
 function draw() {
   background(224,224,224);
+  image(backgroundImg, 0, 0);
 //If the falling object reaches the bottom, move it back to random position at the top.
   if (fallingObject.y >= 400) {
     fallingObject.y = 0;
@@ -56,7 +65,7 @@ function draw() {
     fallingObject.direction = "down";
     score += 1;
   }
-  fill(75, 156, 125);
+  fill(400);
   textSize(17);
   text("Score = " + score, 25, 25, 100);
 
@@ -64,20 +73,23 @@ function draw() {
     catcher.y = -500;
     fallingObject.y = -500;
     text("You Lose!", 180, 200);
+    text("Press anywhere to play again 👆", 120, 240);
     mousey();
-  } else if (score == 10) {
+  } else if (score == 15) {
     catcher.y = -500;
-    fallingObject.y = -500;
+    fallingObject.x = -500;
     text("You Win! 🥇🏆🏅", 180, 200);
+    text("Press anywhere to play again 👆", 120, 240);
     mousey();
   }
+  //allSprites.debug = mouse.pressing();
 }
 
 //Functions
 
 function mousey() {
   if (mouseIsPressed) {
-    text("Press anywhere to play again", 180, 200);
+    
     score = 0;
     catcher.x = 200;
     catcher.y = 380;
