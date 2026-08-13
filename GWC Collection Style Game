@@ -1,0 +1,92 @@
+//Move the catcher with the left and right arrow keys to catch the falling objects. 
+
+/* VARIABLES */
+let catcher, fallingObject;
+let score = 0;
+
+/* PRELOAD LOADS FILES */
+function preload(){
+  
+}
+
+/* SETUP RUNS ONCE */
+function setup() {
+  createCanvas(400,400);
+
+  
+  
+  //Create catcher 
+  catcher = new Sprite(200,380,100,20, "k");
+  catcher.color = color(95,158,160);
+  
+  //Create falling object
+  fallingObject = new Sprite(100,0,10);
+  fallingObject.color = color(0,128,128);
+  fallingObject.vel.y = 5;
+}
+
+/* DRAW LOOP REPEATS */
+function draw() {
+  background(224,224,224);
+//If the falling object reaches the bottom, move it back to random position at the top.
+  if (fallingObject.y >= 400) {
+    fallingObject.y = 0;
+    fallingObject.x = random(width);
+    fallingObject.vel.y = random(3, 5);
+    score -= 1;
+  }
+
+  //Move catcher
+  if (kb.pressing("left")) {
+    catcher.vel.x = -3;
+  } else if (kb.pressing("right")) {
+    catcher.vel.x = 3;
+  }
+
+  if (catcher.x < 50) {
+    catcher.x = 50;
+  } else if (catcher.x > 350) {
+    catcher.x = 350;
+  }
+
+  if (fallingObject.collides(catcher)) {
+    fallingObject.y = 0;
+    fallingObject.x = random(width);
+    fallingObject.vel.y = random(2, 5);
+    fallingObject.direction = "down";
+    score += 1;
+  }
+  fill(75, 156, 125);
+  textSize(17);
+  text("Score = " + score, 25, 25, 100);
+
+  if (score < 0) {
+    catcher.y = -500;
+    fallingObject.y = -500;
+    text("You Lose!", 180, 200);
+    mousey();
+  } else if (score == 10) {
+    catcher.y = -500;
+    fallingObject.y = -500;
+    text("You Win! 🥇🏆🏅", 180, 200);
+    mousey();
+  }
+}
+
+//Functions
+
+function mousey() {
+  if (mouseIsPressed) {
+    text("Press anywhere to play again", 180, 200);
+    score = 0;
+    catcher.x = 200;
+    catcher.y = 380;
+    fallingObject.y = 0;
+    fallingObject.x = random(width);
+    fallingObject.vel.y = random(2, 5);
+    fallingObject.direction = "down";
+  }
+}
+
+
+
